@@ -1,0 +1,151 @@
+baseURL = "https://hawkesevenstark.github.io/"
+locale = "en-us"   # Hugo >= 0.158. On older Hugo this key is IGNORED and the
+                   # site falls back to lang="en" (no region) — use
+                   # languageCode = "en-us" instead if you target < 0.158.
+title = "TERMINAL"
+theme = "scanlines"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+    [markup.goldmark.extensions]
+      # Required on the default fontFamily = "glass": Glass TTY VT220 has no
+      # curly quotes or em dashes, so leaving the typographer on makes those
+      # characters fall back to another font mid-sentence.
+      typographer = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+  [markup.highlight]
+    codeFences = true
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menus.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+  [[menus.main]]
+    name = "Archive"
+    url = "/archive/"
+    weight = 3
+  [[menus.main]]
+    name = "About"
+    url = "/about/"
+    weight = 4
+
+[params]
+  description = "Your site description"
+  author = "Hawke"
+
+  [params.scanlines]
+    # Color scheme: "amber", "green", "blue", "white"
+    colorScheme = "white"
+
+    # Homepage style: "blog" (default) or "profile"
+    homepage = "profile"
+
+    # Misc
+    favicon = "/favicon.ico"
+    dateFormat = "2006-01-02"
+    showReadingTime = true
+    showTags = true
+    contentSection = "posts"  # Section holding your posts (homepage/archive/404)
+    ogImage = ""              # Default Open Graph/Twitter share image
+
+    # Custom color overrides (optional)
+    [params.scanlines.colors]
+      foreground = ""        # e.g., "#FFB000"
+      background = ""        # e.g., "#0D0A00"
+      backgroundSecondary = ""
+      accent = ""
+      link = ""
+      linkHover = ""
+
+    # CRT Visual Effects
+    [params.scanlines.effects]
+      enabled = true         # Master toggle
+      scanlines = true       # Horizontal lines
+      scanlineOpacity = 0.4  # 0.0 - 1.0
+      flicker = false        # Screen flicker
+      flickerIntensity = 0.03
+      vignette = true        # Edge fade + screen curvature (default: true)
+      vignetteIntensity = 0.8
+      glow = true            # Phosphor glow
+      glowIntensity = 0.8    # 0.0 - 2.0
+
+    # Accessibility
+    [params.scanlines.accessibility]
+      highContrast = false
+      reduceMotion = false
+      disableEffects = false
+
+    # Header
+    [params.scanlines.header]
+      showTitle = true       # Show site title or ASCII art (default: true)
+      asciiFile = ""         # ASCII art file in static/ (leave empty for plain text title)
+      showBox = true         # Show border around header
+      asciiScale = 1.0       # Size multiplier for ASCII art (1.5 = 50% larger, 0.75 = 25% smaller)
+
+    # Table of Contents
+    [params.scanlines.toc]
+      enabled = true
+      collapsible = true
+      title = "CONTENTS"
+
+    # Status Line (the VT320-style 25th line)
+    [params.scanlines.statusLine]
+      enabled = true         # default: true
+
+    # Layout
+    [params.scanlines.layout]
+      containerWidth = "1200px"
+      contentWidth = "40rem"
+
+    # Typography
+    [params.scanlines.typography]
+      baseFontSize = "20px"
+      fontFamily = "glass"     # "glass" or "fira"
+
+    # Syntax Highlighting
+    [params.scanlines.syntax]
+      colored = false
+
+    # Social Links
+    [params.scanlines.social]
+      github = "HawkeSevenstark"
+      twitter = ""
+      linkedin = ""
+      mastodon = ""
+      medium = ""
+      hackthebox = ""
+      bluesky = "sevenstark.bsky.social"
+      youtube = ""
+      discord = ""
+      steam = ""
+      email = ""
+      rss = false
+
+    # Profile (used when homepage = "profile")
+    [params.scanlines.profile]
+      name = "Hawke"
+      subtitle = "test"
+      avatar = "images/birdboy.png"
+      bio = "hello everybody"
+
+      # Buttons on profile homepage
+       [[params.scanlines.profile.buttons]]
+         name = "Posts"
+         url = "/posts/"
