@@ -5,6 +5,10 @@ locale = "en-us"   # Hugo >= 0.158. On older Hugo this key is IGNORED and the
 title = "TERMINAL"
 theme = "scanlines"
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [outputs]
   home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
